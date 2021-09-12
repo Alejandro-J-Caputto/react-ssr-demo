@@ -15,6 +15,7 @@ export const Home = () => {
             <h1>Hello {planet}</h1>
             <img src={logo} alt="logo react" />
             <button onClick={handleMessage}>CLICK ME</button>
+            
         </div>
     )
 }

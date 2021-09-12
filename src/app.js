@@ -3,6 +3,7 @@
 // const React = require("react");
 // const renderToString = require("react-dom/server").renderToString;
 // const { Home } = require("./client/components/Home");
+import 'regenerator-runtime';
 import { fileURLToPath } from "url";
 import path, { dirname } from "path";
 import express from "express";

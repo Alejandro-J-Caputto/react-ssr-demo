@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npm-run-all --parallel dev:*",
     "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
-    "dev:build-server": "webpack --config webpack.server.js -w",
-    "dev:build-client": "webpack --config webpack.client.js -w"
+    "dev:build-server": "webpack --mode development --config webpack.server.js -w",
+    "dev:build-client": "webpack --mode development --config webpack.client.js -w"
   },
   "author": "Alejandro Caputto",
   "license": "ISC",
@@ -23,6 +23,7 @@
     "react-router-dom": "^5.3.0",
     "redux": "^4.1.1",
     "redux-thunk": "^2.3.0",
+    "regenerator-runtime": "^0.13.9",
     "serialize-javascript": "^6.0.0"
   },
   "devDependencies": {
