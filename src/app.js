@@ -19,8 +19,8 @@ app.get(
   /\.(js|css|map|ico|png)$/,
   express.static(path.resolve(__dirname, "../", "build"))
 );
-app.get("/", (req, res) => {
-  res.send(renderer());
+app.get("*", (req, res) => {
+  res.send(renderer(req));
 });
 
 app.listen(PORT, () => console.log("Listening on port: " + PORT));
