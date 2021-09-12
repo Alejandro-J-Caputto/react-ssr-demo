@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
-import "../../sass/index.scss";
 import logo from '../../assets/img/react-logo.png';
 export const Home = () => {
     const [planet, setPlanet] = useState('World')
     const handleMessage = () => {
-        console.log(planet);
         if(planet === 'World') {
             setPlanet('Patataas')
         } else {
