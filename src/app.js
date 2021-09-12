@@ -5,10 +5,8 @@
 // const { Home } = require("./client/components/Home");
 import { fileURLToPath } from "url";
 import path, { dirname } from "path";
-import React from "react";
 import express from "express";
-import { renderToString } from "react-dom/server";
-import Home from "./client/components/Home";
+import renderer from "./helpers/renderer";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -22,26 +20,7 @@ app.get(
   express.static(path.resolve(__dirname, "../", "build"))
 );
 app.get("/", (req, res) => {
-  const content = renderToString(<Home />);
-
-  const htmlMarkUp = `
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link href="main.css" rel="stylesheet"/>
-      <script defer src="bundle.js"></script>
-      <title>SSR</title>
-  </head>
-  <body>
-      <div id="app">${content}</div>
-  </body>
-  </html>
-  `;
-
-  res.send(htmlMarkUp);
+  res.send(renderer());
 });
 
 app.listen(PORT, () => console.log("Listening on port: " + PORT));
