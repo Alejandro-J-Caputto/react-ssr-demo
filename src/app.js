@@ -7,6 +7,7 @@ import { fileURLToPath } from "url";
 import path, { dirname } from "path";
 import express from "express";
 import renderer from "./helpers/renderer";
+import createStore from "./helpers/createStore";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -20,7 +21,10 @@ app.get(
   express.static(path.resolve(__dirname, "../", "build"))
 );
 app.get("*", (req, res) => {
-  res.send(renderer(req));
+  const store = createStore();
+  //some logic to initialize
+  //and load data into the store
+  res.send(renderer(req, store));
 });
 
 app.listen(PORT, () => console.log("Listening on port: " + PORT));
