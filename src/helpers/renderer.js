@@ -27,6 +27,10 @@ export default (req, store) => {
   </head>
   <body>
       <div id="app">${content}</div>
+      <script defer>window.INITIAL_STATE=${JSON.stringify(
+        store.getState()
+      )}</script>
+
   </body>
   </html>
   `;

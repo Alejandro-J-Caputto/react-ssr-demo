@@ -11,7 +11,7 @@ import { reducers } from "./redux/reducers/index";
 import { renderRoutes } from "react-router-config";
 import Routes from "./Routes";
 // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-export const store = createStore(reducers, {}, applyMiddleware(thunk));
+export const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunk));
 
 const appHookHTML = document.getElementById("app");
 ReactDOM.hydrate(

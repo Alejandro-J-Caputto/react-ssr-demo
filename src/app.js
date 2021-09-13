@@ -3,10 +3,12 @@
 // const React = require("react");
 // const renderToString = require("react-dom/server").renderToString;
 // const { Home } = require("./client/components/Home");
-import 'regenerator-runtime';
+import "regenerator-runtime";
 import { fileURLToPath } from "url";
 import path, { dirname } from "path";
 import express from "express";
+import { matchRoutes } from "react-router-config";
+import Routes from "./client/Routes";
 import renderer from "./helpers/renderer";
 import createStore from "./helpers/createStore";
 
@@ -23,9 +25,16 @@ app.get(
 );
 app.get("*", (req, res) => {
   const store = createStore();
-  //some logic to initialize
-  //and load data into the store
-  res.send(renderer(req, store));
+  //Check if the req.path Matches some of our routes
+  // returns the information and the components related to the route
+  const promises = matchRoutes(Routes, req.path).map(({ route }) => {
+    //We take the information from the component with loadData
+    return route.loadData ? route.loadData(store) : null;
+  });
+
+  Promise.all(promises).then(() => {
+    res.send(renderer(req, store));
+  });
 });
 
 app.listen(PORT, () => console.log("Listening on port: " + PORT));
