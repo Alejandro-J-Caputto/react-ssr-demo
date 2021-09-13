@@ -8,6 +8,7 @@ import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import "../sass/index.scss";
 import { reducers } from "./redux/reducers/index";
+import { renderRoutes } from "react-router-config";
 import Routes from "./Routes";
 // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 export const store = createStore(reducers, {}, applyMiddleware(thunk));
@@ -16,7 +17,8 @@ const appHookHTML = document.getElementById("app");
 ReactDOM.hydrate(
   <Provider store={store}>
     <BrowserRouter>
-      <Routes />
+      {/* <Routes /> */}
+      <div>{renderRoutes(Routes)}</div>
     </BrowserRouter>
   </Provider>,
   appHookHTML
