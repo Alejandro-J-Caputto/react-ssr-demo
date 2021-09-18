@@ -2,6 +2,7 @@ import React from "react";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
 import { renderRoutes } from "react-router-config";
+import serialize from 'serialize-javascript';
 import Routes from "../client/Routes";
 import { Provider } from "react-redux";
 
@@ -27,7 +28,7 @@ export default (req, store) => {
   </head>
   <body>
       <div id="app">${content}</div>
-      <script defer>window.INITIAL_STATE=${JSON.stringify(
+      <script defer>window.INITIAL_STATE=${serialize(
         store.getState()
       )}</script>
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import logo from '../../assets/img/react-logo.png';
-export const Home = () => {
+export const HomePage = () => {
     const [planet, setPlanet] = useState('World')
     const handleMessage = () => {
         if(planet === 'World') {
@@ -19,4 +19,6 @@ export const Home = () => {
         </div>
     )
 }
-export default Home;
+export default {
+    component: HomePage
+};

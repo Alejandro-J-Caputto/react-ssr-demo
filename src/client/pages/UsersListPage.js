@@ -4,7 +4,7 @@ import { fetchUsers } from "../redux/actions/userActions";
 export const loadData = (store) => {
   return store.dispatch(fetchUsers);
 };
-export const UsersList = () => {
+export const UsersListPage = () => {
   const users = useSelector((state) => state.users);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -21,3 +21,8 @@ export const UsersList = () => {
     </div>
   );
 };
+
+export default {
+  component: UsersListPage,
+  loadData
+}
