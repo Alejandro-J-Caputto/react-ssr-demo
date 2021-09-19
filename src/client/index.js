@@ -15,7 +15,7 @@ const API_CLIENT = {
   baseURL: '/api',
   method: "GET",
   headers: {
-    "Content-Type": "application/json"
+    "Content-Type":"application/json"
   }
 }
 export const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunk.withExtraArgument(API_CLIENT)));

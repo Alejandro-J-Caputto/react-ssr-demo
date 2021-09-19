@@ -1,0 +1,11 @@
+.header {
+    background-color: blue;
+    color: blanchedalmond;
+    display: flex;
+    padding: 2rem;
+    justify-content: space-around;
+    & a {
+       color: aliceblue;
+        margin-right: 2rem;
+    }
+}

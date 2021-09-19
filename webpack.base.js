@@ -1,5 +1,6 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+// const webpack = require("webpack");
 module.exports = {
   module: {
     rules: [
@@ -17,6 +18,11 @@ module.exports = {
           ],
         },
       },
+      // {
+      //   type: "javascript/auto",
+      //   test: /\.mjs$/,
+      //   use: [],
+      // },
       {
         test: /\.(png|jpg|gif|jpeg)$/,
         type: "asset/resource",
@@ -30,5 +36,11 @@ module.exports = {
       },
     ],
   },
-  plugins: [new MiniCssExtractPlugin()],
+  plugins: [
+    new MiniCssExtractPlugin(),
+    // new webpack.IgnorePlugin({
+    //   resourceRegExp: /^encoding$/,
+    //   contextRegExp: /node-fetch/,
+    // }),
+  ],
 };

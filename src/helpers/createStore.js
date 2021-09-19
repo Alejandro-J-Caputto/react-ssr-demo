@@ -7,10 +7,13 @@ export default (req) => {
     baseURL: "https://react-ssr-api.herokuapp.com",
     method: "GET",
     headers: {
-      "Content-Type": "application/json",
-      cookie: req.get('cookie') || ''
+      cookie: req.get("cookie") || "",
     },
   };
-  const store = createStore(reducers, {}, applyMiddleware(thunk.withExtraArgument(API_SERVER)));
+  const store = createStore(
+    reducers,
+    {},
+    applyMiddleware(thunk.withExtraArgument(API_SERVER))
+  );
   return store;
 };

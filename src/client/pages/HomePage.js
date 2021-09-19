@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import logo from '../../assets/img/react-logo.png';
+
 export const HomePage = () => {
     const [planet, setPlanet] = useState('World')
     const handleMessage = () => {
@@ -13,7 +13,7 @@ export const HomePage = () => {
     return (
         <div>
             <h1>Hello {planet}</h1>
-            <img src={logo} alt="logo react" />
+            <img src="https://reactjs.org/logo-og.png" width="200" alt="logo react" />
             <button onClick={handleMessage}>CLICK ME</button>
             
         </div>
@@ -22,3 +22,4 @@ export const HomePage = () => {
 export default {
     component: HomePage
 };
+// export default HomePage
