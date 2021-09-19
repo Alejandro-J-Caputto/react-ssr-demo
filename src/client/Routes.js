@@ -1,7 +1,9 @@
 import React from "react";
 import App from "./App";
+import AdminsListPage from "./pages/AdminsListPage";
 // import { Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
+import NotFoundPage from "./pages/NotFoundPage";
 import UsersListPage from "./pages/UsersListPage";
 
 // export default () => {
@@ -25,6 +27,13 @@ export default [
       {
         path: "/users",
         ...UsersListPage,
+      },
+      {
+        ...AdminsListPage,
+        path: "/admins",
+      },
+      {
+        ...NotFoundPage,
       },
     ],
   },

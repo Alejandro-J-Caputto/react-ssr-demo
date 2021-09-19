@@ -29,6 +29,22 @@ export const fetchCurrentUser = async (dispatch, getState, api) => {
     return dispatch({
       type: UsersTypes.FETCH_CURRENT_USER,
       payload: null,
-    })
+    });
+  }
+};
+
+export const fetchAdmins = async (dispatch, getState, api) => {
+  try {
+    const response = await fetch(`${api.baseURL}/admins`, {
+      method: api.method,
+      headers: api.headers,
+    });
+    const data = await response.json();
+    return dispatch({
+      type: UsersTypes.FETCH_ADMINS,
+      payload: data,
+    });
+  } catch (error) {
+    console.log(error);
   }
 };
